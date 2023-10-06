@@ -1,21 +1,19 @@
 package com.example.filetransfer
 
-import androidx.appcompat.view.menu.ActionMenuItemView
-
 
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_todo.view.*
-import android.widget.Button
 
 
 class TodoAdapter(
     private val todos: MutableList<Todo>
 ) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
+
 
     class TodoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -52,6 +50,8 @@ class TodoAdapter(
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
         val curTodo = todos[position]
         holder.itemView.apply {
+            val cbDone = findViewById<CheckBox>(R.id.cbDone)
+            val tvTodoTitle = findViewById<TextView>(R.id.tvTodoTitle )
 
             tvTodoTitle.text = curTodo.title
             cbDone.isChecked = curTodo.isChecked

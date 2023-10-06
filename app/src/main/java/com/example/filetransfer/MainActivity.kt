@@ -1,16 +1,15 @@
 package com.example.filetransfer
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
 import android.widget.Button
-
-
-
-
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+
 
     private lateinit var todoAdapter: TodoAdapter
 
@@ -19,9 +18,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         todoAdapter = TodoAdapter(mutableListOf())
 
+        val button = findViewById<Button>(R.id.button)
+        val button2 = findViewById<Button>(R.id.button2)
+        val etTodoTitle = findViewById<EditText>(R.id.rvTodo)
+        val rvTodo = findViewById<RecyclerView>(R.id.rvTodo)
+
+        //val rvTodo= findViewById<EditText>(R.id.rvTodo)
 
         rvTodo.adapter = todoAdapter
-        rvTodoItems.layoutManager = LinearLayoutManager(this)
+        //val rvTodoItems=findViewById<EditText>(R.id.rvTodo)
+        rvTodo.layoutManager = LinearLayoutManager(this)
 
         button.setOnClickListener {
             val todoTitle = etTodoTitle.text.toString()
